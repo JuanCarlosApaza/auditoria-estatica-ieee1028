@@ -13,8 +13,7 @@ namespace DemoAuditApp
         static void Main(string[] args)
         {
             Console.WriteLine("Por favor, ingrese su edad:");
-            string input = Console.ReadLine();
-
+            string? input = Console.ReadLine();
             // 1. CONTROL PREVENTIVO: Validación segura con int.TryParse
             if (int.TryParse(input, out int edad))
             {
