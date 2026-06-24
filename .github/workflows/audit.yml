@@ -1,0 +1,26 @@
+name: Auditoria Estatica Calidad
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Descargar Código fuente
+      [cite_start]uses: actions/checkout@v3 [cite: 69]
+
+    - name: Configurar Entorno .NET
+      [cite_start]uses: actions/setup-dotnet@v3 [cite: 71]
+      with:
+        [cite_start]dotnet-version: '8.0.x' [cite: 72]
+
+    - name: Dar permisos de ejecución al script
+      run: chmod +x ./audit-script.sh
+
+    - name: Ejecutar Script de Auditoría Automatizada
+      run: ./audit-script.sh
